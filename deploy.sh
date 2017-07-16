@@ -14,7 +14,7 @@ GH_USERMAIL="arnaud.weyts@gmail.com"
 
 # set your build commands here
 function doCompile {
-  yarn build
+  yarn prod
   # echo "vouddit.com" > build/CNAME
 }
 
