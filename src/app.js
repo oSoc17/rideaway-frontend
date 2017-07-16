@@ -3,10 +3,12 @@ import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 import 'whatwg-fetch';
 import _ from 'lodash';
 
-import { getElementByClassName } from './lib';
-import { startTracking } from './geolocation';
+import markerWhite from './icons/marker-white.svg';
+
+import { getElementByClassName } from './modules/lib';
+import { startTracking } from './modules/geolocation';
 //import { registerEvents } from './events';
-import '../scss/styles.scss';
+import './scss/styles.scss';
 
 const routeConfig = {
   All: 'all',
@@ -296,6 +298,7 @@ function addFilters(features) {
 
 // executes when the map is loading
 map.on('load', function() {
+  getElementByClassName('marker-white').src = markerWhite;
   let origin = null;
   let destination = null;
   let markerO = null;
