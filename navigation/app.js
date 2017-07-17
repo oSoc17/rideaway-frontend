@@ -58,8 +58,11 @@ function pointOnRoute (route, point) {
 
 var length = lengthOfRoute(result.route);
 
-console.log(length);
+var dataAtLast = result.route.features[result.route.features.length - 1].properties;
+var totalDistance = dataAtLast.distance / 1000.0;
+var totalTime = dataAtLast.time;
 
+console.log(dataAtLast);
 
 var i = 0;
 function step (){ 
@@ -68,7 +71,10 @@ function step (){
 
     var dataAtLocation = pointOnRoute(result.route, location);
 
-    document.getElementById("p1").innerHTML = 'After ' + i + "km we are at "  + location + ' on this edge ' + JSON.stringify(dataAtLocation);
+    document.getElementById("distance").innerHTML = '' + (totalDistance - i);
+    document.getElementById("time").innerHTML = '' + (totalTime - dataAtLocation.time);
+    document.getElementById("debug").innerHTML = '' + JSON.stringify(dataAtLocation);
+
     if (dataAtLocation.colour)  {
         document.getElementById("main").style["background-color"] = dataAtLocation.colour;
     } else {
@@ -78,7 +84,7 @@ function step (){
     i += 0.01;
 
     if (i < length) {
-        setTimeout(step, 100);
+        setTimeout(step, 10);
     }
 }
-setTimeout(step, 100);
+setTimeout(step, 10);

@@ -7,3 +7,9 @@
     bottom: 0; 
     width: 100%;
 }
+
+#bike {
+    display: block;
+    margin: 0 auto;
+    width: 20%;
+}
