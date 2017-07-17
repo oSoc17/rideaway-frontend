@@ -18,9 +18,9 @@
 #bike {
     display: block;
     margin: auto;
-    width: 75%;
+    width: 40%;
     position: relative;
-    top:50%;
+    top: 35%;
     bottom:50%;
 }
 
@@ -34,3 +34,20 @@
     width: 150px;
     height: 150px;
 }
+
+#distanceNextContainer
+{
+    text-align: center;
+}
+
+#distanceNext
+{
+    display: inline-block;
+    background-color: yellow;
+}
+
+#direction{
+    position: relative;
+    top: 10%;
+}
+

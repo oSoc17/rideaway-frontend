@@ -86,10 +86,22 @@ function step (){
     document.getElementById("time").innerHTML = '' + (totalTime - dataAtLocation.time);
     document.getElementById("instruction").innerHTML = '' + instruction.properties.instruction;
     document.getElementById("distanceToNext").innerHTML = '' + (instruction.properties.distance - (i*1000));
+    document.getElementById("distanceNext").innerHTML = '' + (Math.round(instruction.properties.distance - (i*1000))) + " m";
+
     document.getElementById("nextColour").style["background-color"] = instruction.properties.colour;
     document.getElementById("debug").innerHTML = '' + JSON.stringify(dataAtLocation);
     document.getElementById("main").style["background-color"] = instruction.properties.colour;
 
+    var direction;
+    if (instruction.properties.angle){
+        if (instruction.properties.angle.toLowerCase().indexOf("left") !== -1){
+            direction =  "<-- " + instruction.properties.nextRef; 
+        }
+        else {
+            direction = instruction.properties.nextRef + " -->"
+        }
+    }
+    document.getElementById("direction").innerHTML = '' + direction;
 
     if (dataAtLocation.colour)  {
         document.getElementById("routeColour").style["background-color"] = dataAtLocation.colour;
