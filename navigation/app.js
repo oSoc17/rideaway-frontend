@@ -56,6 +56,15 @@ function pointOnRoute (route, point) {
     return bestData;
 }
 
+function nextInstruction(instructions, currentDistance){
+    for (var i = 0; i< instructions.features.length; i++){
+        var instruction = instructions.features[i];
+        if (instruction.properties.distance >= currentDistance){
+            return instruction;
+        }
+    }
+}
+
 var length = lengthOfRoute(result.route);
 
 var dataAtLast = result.route.features[result.route.features.length - 1].properties;
@@ -71,20 +80,27 @@ function step (){
 
     var dataAtLocation = pointOnRoute(result.route, location);
 
+    var instruction = nextInstruction(result.instructions, i*1000);
+
     document.getElementById("distance").innerHTML = '' + (totalDistance - i);
     document.getElementById("time").innerHTML = '' + (totalTime - dataAtLocation.time);
+    document.getElementById("instruction").innerHTML = '' + instruction.properties.instruction;
+    document.getElementById("distanceToNext").innerHTML = '' + (instruction.properties.distance - (i*1000));
+    document.getElementById("nextColour").style["background-color"] = instruction.properties.colour;
     document.getElementById("debug").innerHTML = '' + JSON.stringify(dataAtLocation);
+    document.getElementById("main").style["background-color"] = instruction.properties.colour;
+
 
     if (dataAtLocation.colour)  {
-        document.getElementById("main").style["background-color"] = dataAtLocation.colour;
+        document.getElementById("routeColour").style["background-color"] = dataAtLocation.colour;
     } else {
-        document.getElementById("main").style["background-color"] = "white";
+        document.getElementById("routeColour").style["background-color"] = "white";
     }
 
     i += 0.01;
 
     if (i < length) {
-        setTimeout(step, 10);
+        setTimeout(step, 100);
     }
 }
-setTimeout(step, 10);
+setTimeout(step, 100);

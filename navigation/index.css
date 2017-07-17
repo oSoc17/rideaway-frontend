@@ -8,6 +8,13 @@
     width: 100%;
 }
 
+.colorbox
+{
+    height: 50px;
+    width: 50px;
+    border-style: solid;
+}
+
 #bike {
     display: block;
     margin: 0 auto;
