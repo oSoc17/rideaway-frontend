@@ -69,6 +69,11 @@ function step (){
     var dataAtLocation = pointOnRoute(result.route, location);
 
     document.getElementById("p1").innerHTML = 'After ' + i + "km we are at "  + location + ' on this edge ' + JSON.stringify(dataAtLocation);
+    if (dataAtLocation.colour)  {
+        document.getElementById("main").style["background-color"] = dataAtLocation.colour;
+    } else {
+        document.getElementById("main").style["background-color"] = "white";
+    }
 
     i += 0.01;
 
