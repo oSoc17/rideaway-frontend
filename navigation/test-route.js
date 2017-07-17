@@ -1049,7 +1049,7 @@ var result = {
 				"ref": null,
 				"distance": "0",
 				"nextColour": "#008C00",
-				"nexRef": "1a",
+				"nextRef": "1a",
 				"direction": "North",
 				"distanceToNext": "262.355"
 			},
@@ -1065,9 +1065,9 @@ var result = {
 				"ref": "1a",
 				"distance": "262.355",
 				"nextColour": "#008C00",
-				"nexRef": "PV-GW",
+				"nextRef": "PV-GW",
 				"direction": "East",
-				"angle": "117.2217",
+				"angle": "Right",
 				"distanceToNext": "443.0001"
 			},
 			"geometry": {
@@ -1082,9 +1082,9 @@ var result = {
 				"ref": "PV-GW",
 				"distance": "705.3551",
 				"nextColour": "#f1491c",
-				"nexRef": "64",
+				"nextRef": "64",
 				"direction": "NorthEast",
-				"angle": "82.80431",
+				"angle": "Right",
 				"distanceToNext": "126.1"
 			},
 			"geometry": {
@@ -1099,9 +1099,9 @@ var result = {
 				"ref": "64",
 				"distance": "831.4551",
 				"nextColour": "#a76709",
-				"nexRef": "59",
+				"nextRef": "59",
 				"direction": "NorthEast",
-				"angle": "179.8909",
+				"angle": "StraightOn",
 				"distanceToNext": "678.2999"
 			},
 			"geometry": {
@@ -1116,9 +1116,9 @@ var result = {
 				"ref": "59",
 				"distance": "1509.755",
 				"nextColour": "#f1491c",
-				"nexRef": "64",
+				"nextRef": "64",
 				"direction": "NorthEast",
-				"angle": "91.47026",
+				"angle": "Right",
 				"distanceToNext": "414.2"
 			},
 			"geometry": {
@@ -1133,9 +1133,9 @@ var result = {
 				"ref": "64",
 				"distance": "1923.955",
 				"nextColour": "#008C00",
-				"nexRef": "1a",
+				"nextRef": "1a",
 				"direction": "North",
-				"angle": "199.2222",
+				"angle": "SlightlyLeft",
 				"distanceToNext": "96.5"
 			},
 			"geometry": {
@@ -1150,9 +1150,9 @@ var result = {
 				"ref": "1a",
 				"distance": "2020.455",
 				"nextColour": "#f1491c",
-				"nexRef": "64",
+				"nextRef": "64",
 				"direction": "NorthEast",
-				"angle": "94.68011",
+				"angle": "Right",
 				"distanceToNext": "735.9901"
 			},
 			"geometry": {
