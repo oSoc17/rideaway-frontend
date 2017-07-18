@@ -1,10 +1,108 @@
+@font-face {
+  font-family: 'Circular Std Black';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Circular Std Black'), url('../public/fonts/CircularStd-Black.woff') format('woff');
+}
+
+html,
+body,
+.container {
+  font-family: 'Circular Std Black';
+  font-size: 16pt;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+}
+
+#next-instruction {
+  background-color: red;
+  height: 30vh;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  width: 100vw;
+}
+#next-instruction-arrow {
+  color: #fff;
+  display: flex;
+  float: left;
+  font-size: 4em;
+  height: 100%;
+  text-align: center;
+  width: 50%;
+}
+#next-instruction-arrow > .fa {
+  margin: auto;
+}
+#next-instruction-road {
+  display: flex;
+  float: right;
+  height: 100%;
+  text-align: center;
+  width: 50%;
+}
+#next-instruction-road > div {
+  margin: auto;
+}
+
+#next-instruction-distance {
+  background-color: #fff;
+  border-radius: 25px;
+  display: block;
+  height: 50px;
+  line-height: 50px;
+  margin: auto;
+  margin-top: -25px;
+  position: absolute;
+  text-align: center;
+  top: 30vh;
+  width: 33vw;
+  z-index: 99;
+  left: 0;
+  right: 0;
+}
+
+#current-road {
+  background-image: url("./assets/bike-icon-03.png");
+  background-position: bottom 25px center;
+  background-repeat: no-repeat;
+  background-size: 33vw;
+  background-color: blue;
+  height: 70vh;
+  position: absolute;
+  top: 30vh;
+  width: 100vw;
+}
+#current-road > div {
+  bottom: -150px;
+  margin: auto;
+  position: relative;
+}
+
+/*
+#debug {
+  display: none;
+}
+*/
+
+.road-square {
+  background-color: #fff;
+  border-radius: 10px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  width: 50px;
+}
+/*
 #main
 {
     background-color: white;
-    position:absolute; 
+    position:absolute;
     left: 0;
-    top: 0; 
-    bottom: 0; 
+    top: 0;
+    bottom: 0;
     width: 100%;
 }
 
@@ -51,3 +149,4 @@
     top: 10%;
 }
 
+*/

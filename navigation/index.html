@@ -4,20 +4,43 @@
         <meta charset="utf-8">
         <title>Rideaway</title>
         <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
         <link href='index.css' rel='stylesheet' />
         <script src='https://npmcdn.com/@turf/turf/turf.min.js'></script>
         <script src="test-route.js"></script>
     </head>
     <body>
-        <div id="main">
+      <div class="container">
+
+        <div id="next-instruction">
+          <div id="next-instruction-arrow">
+            <i class="fa fa-arrow-left" aria-hidden="true"></i>
+          </div>
+          <div id="next-instruction-road">
+            <div class="road-square">3</div>
+          </div>
+        </div>
+
+        <div id="next-instruction-distance">300m.</div>
+
+        <div id="current-road" class="centered">
+          <div class="road-square">3</div>
+        </div>
+
+      </div>
+
+
+
+
+
+        <div id="debug">
             Current distance: <div id="distance"></div>km <br/>
             Current time: <div id="time"></div> seconds <br/>
             Next instruction: <div id="instruction"></div> <br/>
-            Distance to next instruction: <div id="distanceToNext"></div> <br/>P
             Next colour: <div id="nextColour" class="colorbox"></div>
             Route colour: <div id="routeColour" class="colorbox"></div>
-            <p id="debug"></p>
-            
+            <p id="debug-console"></p>
+
             <div id="distanceNextContainer">
                 <div id="distanceNext"></div>
             </div>
