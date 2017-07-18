@@ -7,6 +7,8 @@ var destination = [
     50.8437861154778
 ];
 
+var routeLine;
+
 // use http://turfjs.org/docs/#pointonline to get the current location on the route
 // use http://turfjs.org/docs/#pointonline to simulate the user moving along the route.
 
@@ -56,7 +58,40 @@ function pointOnRoute (route, point) {
     return bestData;
 }
 
-function nextInstruction(instructions, currentDistance){
+function distanceAtLocation(route, location){
+    //point on line for every linestring
+    var bestDist =  null;
+    var bestIndex = null;
+    for(var i = 0; i < route.features.length; i++){
+        var feature = route.features[i];
+        if (feature.geometry.type == "LineString") {
+            var snapped = turf.pointOnLine(feature, location);
+            var dist = turf.distance(snapped, location)
+            //closest point is the location
+            if(bestDist !== null){
+                if (dist < bestDist){
+                    bestDist = dist;
+                    bestIndex = i;
+                }
+            }
+            else {
+                bestDist = dist;
+                bestIndex = i;
+            }
+        }
+    }
+    //calculate linedistance of every segment before + slice of current segment
+    var length = 0.0;
+    for (var j = 0; j < bestIndex; j++){
+        length += turf.lineDistance(route.features[j]); 
+    }
+    length += turf.lineDistance(turf.lineSlice(turf.point(route.features[bestIndex].geometry.coordinates[0]), location, route.features[bestIndex]));
+    
+    //return
+    return length;
+}
+
+function instructionAt(instructions, currentDistance){
     for (var i = 0; i< instructions.features.length; i++){
         var instruction = instructions.features[i];
         if (instruction.properties.distance >= currentDistance){
@@ -77,16 +112,26 @@ var i = 0;
 function step (){ 
 
     var location = pointAlongRoute(result.route, i).geometry.coordinates;
+    update(location)
+    
 
+    i += 0.01;
+
+    if (i < length) {
+        setTimeout(step, 100);
+    }
+}
+
+function update(location){
     var dataAtLocation = pointOnRoute(result.route, location);
+    var distance = distanceAtLocation(result.route, location);
+    var instruction = instructionAt(result.instructions, i*1000);
 
-    var instruction = nextInstruction(result.instructions, i*1000);
-
-    document.getElementById("distance").innerHTML = '' + (totalDistance - i);
+    document.getElementById("distance").innerHTML = '' + (totalDistance - distance);
     document.getElementById("time").innerHTML = '' + (totalTime - dataAtLocation.time);
     document.getElementById("instruction").innerHTML = '' + instruction.properties.instruction;
-    document.getElementById("distanceToNext").innerHTML = '' + (instruction.properties.distance - (i*1000));
-    document.getElementById("distanceNext").innerHTML = '' + (Math.round(instruction.properties.distance - (i*1000))) + " m";
+    document.getElementById("distanceToNext").innerHTML = '' + (instruction.properties.distance - (distance*1000));
+    document.getElementById("distanceNext").innerHTML = '' + (Math.round(instruction.properties.distance - (distance*1000))) + " m";
 
     document.getElementById("nextColour").style["background-color"] = instruction.properties.colour;
     document.getElementById("debug").innerHTML = '' + JSON.stringify(dataAtLocation);
@@ -108,11 +153,6 @@ function step (){
     } else {
         document.getElementById("routeColour").style["background-color"] = "white";
     }
-
-    i += 0.01;
-
-    if (i < length) {
-        setTimeout(step, 100);
-    }
 }
+
 setTimeout(step, 100);
