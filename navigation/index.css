@@ -18,33 +18,32 @@ body,
 
 #next-instruction {
   background-color: red;
-  height: 30vh;
-  margin: auto;
+  height: 50vh;
+  margin: 0 auto;
   position: absolute;
+  text-align: center;
   top: 0;
   width: 100vw;
 }
 #next-instruction-arrow {
   color: #fff;
-  display: flex;
-  float: left;
-  font-size: 4em;
-  height: 100%;
+  display: inline-block;
+  /*font-size: 4em;*/
+  height: 50%;
   text-align: center;
   width: 50%;
 }
 #next-instruction-arrow > .fa {
-  margin: auto;
+  margin: 0 auto;
 }
 #next-instruction-road {
-  display: flex;
-  float: right;
-  height: 100%;
+  display: inline-block;
+  height: 50%;
   text-align: center;
   width: 50%;
 }
 #next-instruction-road > div {
-  margin: auto;
+  margin: 0 auto;
 }
 
 #next-instruction-distance {
@@ -57,7 +56,7 @@ body,
   margin-top: -25px;
   position: absolute;
   text-align: center;
-  top: 30vh;
+  top: 50vh;
   width: 33vw;
   z-index: 99;
   left: 0;
@@ -68,15 +67,15 @@ body,
   background-image: url("./assets/bike.svg");
   background-position: bottom 25px center;
   background-repeat: no-repeat;
-  background-size: 33vw;
+  background-size: 30vw;
   background-color: blue;
-  height: 70vh;
+  height: 50vh;
   position: absolute;
-  top: 30vh;
+  top: 50vh;
   width: 100vw;
 }
 #current-road > div {
-  bottom: -150px;
+  bottom: -50px;
   margin: auto;
   position: relative;
 }

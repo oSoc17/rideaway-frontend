@@ -128,7 +128,7 @@ function update(location){
     var instruction = instructionAt(result.instructions, i*1000);
 
 
-    document.getElementById("next-instruction-distance").innerHTML = '' + Math.round((instruction.properties.distance - (distance*1000))/10)*10;
+    document.getElementById("next-instruction-distance").innerHTML = '' + Math.round((instruction.properties.distance - (distance*1000))/10)*10 + 'm';
     document.getElementById("next-instruction-road-ref").innerHTML = '' + instruction.properties.nextRef;
     document.getElementById("current-road-ref").innerHTML = '' + instruction.properties.ref;
 
@@ -145,6 +145,7 @@ function update(location){
     }
 
 
+/*
     if (instruction.properties.angle){
         if (instruction.properties.angle.toLowerCase().indexOf("left") !== -1){
             document.getElementById("next-instruction-arrow-img").className = "fa fa-arrow-left"
@@ -152,7 +153,7 @@ function update(location){
         else {
             document.getElementById("next-instruction-arrow-img").className = "fa fa-arrow-right"
         }
-    }
+    }*/
     
 
 
