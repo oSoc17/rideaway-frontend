@@ -127,15 +127,33 @@ function update(location){
     var distance = distanceAtLocation(result.route, location);
     var instruction = instructionAt(result.instructions, i*1000);
 
+
+    document.getElementById("next-instruction-distance").innerHTML = '' + Math.round((instruction.properties.distance - (distance*1000))/10)*10;
+    document.getElementById("next-instruction-road-ref").innerHTML = '' + instruction.properties.nextRef;
+    document.getElementById("current-road-ref").innerHTML = '' + instruction.properties.ref;
+
+
+    if (instruction.properties.colour)  {
+        document.getElementById("current-road").style["background-color"] = instruction.properties.colour;
+    } else {
+        document.getElementById("current-road").style["background-color"] = "white";
+    }
+    if (instruction.properties.nextColour)  {
+        document.getElementById("next-instruction").style["background-color"] = instruction.properties.nextColour
+    } else {
+        document.getElementById("next-instruction").style["background-color"] = "white";
+    }
+
+
+    //debug
+    /*
     document.getElementById("distance").innerHTML = '' + (totalDistance - distance);
     document.getElementById("time").innerHTML = '' + (totalTime - dataAtLocation.time);
     document.getElementById("instruction").innerHTML = '' + instruction.properties.instruction;
-    document.getElementById("distanceToNext").innerHTML = '' + (instruction.properties.distance - (distance*1000));
     document.getElementById("distanceNext").innerHTML = '' + (Math.round(instruction.properties.distance - (distance*1000))) + " m";
 
     document.getElementById("nextColour").style["background-color"] = instruction.properties.colour;
     document.getElementById("debug").innerHTML = '' + JSON.stringify(dataAtLocation);
-    document.getElementById("main").style["background-color"] = instruction.properties.colour;
 
     var direction;
     if (instruction.properties.angle){
@@ -152,7 +170,7 @@ function update(location){
         document.getElementById("routeColour").style["background-color"] = dataAtLocation.colour;
     } else {
         document.getElementById("routeColour").style["background-color"] = "white";
-    }
+    }*/
 }
 
 setTimeout(step, 100);
