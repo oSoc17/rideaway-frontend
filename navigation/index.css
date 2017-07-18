@@ -65,7 +65,7 @@ body,
 }
 
 #current-road {
-  background-image: url("./assets/bike-icon-03.png");
+  background-image: url("./assets/bike.svg");
   background-position: bottom 25px center;
   background-repeat: no-repeat;
   background-size: 33vw;

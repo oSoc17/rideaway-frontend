@@ -145,6 +145,17 @@ function update(location){
     }
 
 
+    if (instruction.properties.angle){
+        if (instruction.properties.angle.toLowerCase().indexOf("left") !== -1){
+            document.getElementById("next-instruction-arrow-img").className = "fa fa-arrow-left"
+        }
+        else {
+            document.getElementById("next-instruction-arrow-img").className = "fa fa-arrow-right"
+        }
+    }
+    
+
+
     //debug
     /*
     document.getElementById("distance").innerHTML = '' + (totalDistance - distance);
