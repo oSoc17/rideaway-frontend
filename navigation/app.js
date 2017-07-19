@@ -100,21 +100,29 @@ function instructionAt(instructions, currentDistance){
     }
 }
 
-var length = lengthOfRoute(result.route);
+var result;
 
-var dataAtLast = result.route.features[result.route.features.length - 1].properties;
-var totalDistance = dataAtLast.distance / 1000.0;
-var totalTime = dataAtLast.time;
+var length;
+var dataAtLast;
+var totalDistance;
+var totalTime;
 
-console.log(dataAtLast);
+//console.log(dataAtLast);
 
 var i = 0;
-function step (){ 
 
+function initializeNavigation(result){
+    this.result = result;
+    length = lengthOfRoute(result.route);
+    dataAtLast = result.route.features[result.route.features.length - 1].properties;
+    totalDistance = dataAtLast.distance / 1000.0;
+    totalTime = dataAtLast.time;
+}
+
+function step (){ 
     var location = pointAlongRoute(result.route, i).geometry.coordinates;
     update(location)
     
-
     i += 0.01;
 
     if (i < length) {
@@ -132,7 +140,6 @@ function update(location){
     if (instruction.properties.type === "stop"){
         document.getElementById("next-instruction-road-ref").innerHTML = '' + "Bestemming";
         document.getElementById("next-instruction-road-ref").style["width"] = "250px";
-
     }
     else {
         document.getElementById("next-instruction-road-ref").innerHTML = '' + instruction.properties.nextRef;
@@ -144,9 +151,7 @@ function update(location){
         document.getElementById("current-road-ref").innerHTML = '' + instruction.properties.ref;
     }
 
-    
     document.getElementById("current-road-ref").innerHTML = '' + instruction.properties.ref;
-
 
     if (instruction.properties.colour)  {
         document.getElementById("current-road").style["background-color"] = instruction.properties.colour;
@@ -158,8 +163,6 @@ function update(location){
     } else {
         document.getElementById("next-instruction").style["background-color"] = "white";
     }
-
-
 
     if (instruction.properties.angle){
         if (instruction.properties.angle.toLowerCase().indexOf("left") !== -1){
@@ -204,4 +207,5 @@ function update(location){
     }*/
 }
 
+initializeNavigation(result);
 setTimeout(step, 50);
