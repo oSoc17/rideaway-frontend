@@ -8,6 +8,7 @@ import Navigate from './navigate-empty.svg';
 import DiscoverFilled from './discover-full.svg';
 import NavigateFilled from './navigate-full.svg';
 import LocatorYellow from './locator-yellow.svg';
+import Center from './center.svg';
 
 export default {
   Hamburger,
@@ -19,5 +20,6 @@ export default {
   Navigate,
   DiscoverFilled,
   NavigateFilled,
-  LocatorYellow
+  LocatorYellow,
+  Center
 };

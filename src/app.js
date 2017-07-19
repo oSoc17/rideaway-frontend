@@ -8,18 +8,23 @@ import icons from './icons';
 
 import { getElementByClassName } from './modules/lib';
 import { startTracking } from './modules/geolocation';
-import { addFilters, configureAllElements } from './modules/domManipulations';
+import {
+  addFilters,
+  configureAllElements,
+  showNavigationBox
+} from './modules/domManipulations';
 import { toggleLayer, clearRoutes } from './modules/mapManipulations';
 import './scss/styles.scss';
 
-document.querySelector('.marker-white').src = icons.NavWhite;
+document.querySelector('.marker-white').src = icons.Center;
 
 mapboxgl.accessToken = '';
 const map = new mapboxgl.Map({
   container: 'map', // container id
   style: 'https://openmaptiles.github.io/positron-gl-style/style-cdn.json', //stylesheet location
   center: [4.355975, 50.860633], // starting position
-  zoom: 11 // starting zoom
+  zoom: 11, // starting zoom
+  attributionControl: false
 });
 
 let places = {
@@ -178,7 +183,9 @@ function calculateRoute(origin, destination, profile) {
       bbox = [origin, destination];
     }
 
-    map.fitBounds(bbox, { padding: 100 });
+    map.fitBounds(bbox, { padding: 150 });
+
+    showNavigationBox(origin, destination);
   });
 }
 
@@ -229,6 +236,7 @@ function setPlace(place) {
 
 // executes when the map is loading
 map.on('load', function() {
+  map.addControl(new mapboxgl.AttributionControl(), 'bottom-left');
   let markerO = null;
   let markerD = null;
 
@@ -261,10 +269,11 @@ map.on('load', function() {
       markerO.addTo(map);
 
       // calculate route if destination is filled in
-      places.destination &&
+      if (places.destination) {
         calculateRoute(places.origin, places.destination, 'shortest');
-      places.destination &&
         calculateRoute(places.origin, places.destination, 'brussels');
+        showNavigationBox();
+      }
     }
   });
   geocoder2.on('result', ({ result }) => {
@@ -274,10 +283,11 @@ map.on('load', function() {
       markerD = addMarker(places.destination);
       markerD.addTo(map);
 
-      places.origin &&
+      if (places.origin) {
         calculateRoute(places.origin, places.destination, 'shortest');
-      places.origin &&
         calculateRoute(places.origin, places.destination, 'brussels');
+        showNavigationBox();
+      }
 
       // always hide the layer
       toggleLayer(map, 'GFR_routes', 'none');

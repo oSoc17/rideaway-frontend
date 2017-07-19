@@ -1,10 +1,11 @@
-import { routeConfig } from '../constants';
+import { routeConfig, colors } from '../constants';
 import {
   clearRoutes,
   filterRoute,
   toggleLayer,
   removeFilter
 } from './mapManipulations';
+import icons from '../icons';
 
 let map;
 
@@ -190,4 +191,25 @@ export function configureAllElements(mapboxmap, setPlace) {
   map = mapboxmap;
   configureMobileMenu();
   configureInputs(setPlace);
+}
+
+export function showNavigationBox(origin, destination) {
+  const navBox = document.querySelector('.navigation-box');
+  const button = document.querySelector('.center-btn');
+  button.style.display = 'none';
+  document.querySelector('#map').style.height = 'calc(100vh - 100px)';
+
+  const buttonNav = document.createElement('button');
+  const img = document.createElement('img');
+  buttonNav.appendChild(img);
+  buttonNav.className = 'nav-btn';
+  buttonNav.addEventListener('click', () => {
+    location.href = `navigation?loc1=${origin}loc2=${destination}`;
+  });
+  buttonNav.style.transform = 'translateY(-50px)';
+  buttonNav.style.backgroundColor = colors.secondary;
+  buttonNav.firstChild.src = icons.NavWhite;
+  navBox.style.transform = 'translateY(0)';
+
+  document.querySelector('body').appendChild(buttonNav);
 }

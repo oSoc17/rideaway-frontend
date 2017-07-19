@@ -20,3 +20,9 @@ export const routeConfig = {
   B: 'loop',
   C: 'loop'
 };
+
+export const colors = {
+  primary: '#fbba00',
+  secondary: '#385188',
+  white: '#fff'
+};
