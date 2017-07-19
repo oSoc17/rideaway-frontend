@@ -121,8 +121,11 @@ function fetchJSON(url) {
 
 function startTracking() {
   if (navigator.geolocation) {
-    navigator.geolocation.watchPosition(position =>
-      update(position)
+    navigator.geolocation.watchPosition(position => {
+        var coord = position.coords;
+        var location = turf.point([coord.longitude, coord.latitude]);
+        update(location);
+    }      
     );
   } else {
     alert("Sorry, your browser doesn't support geolocation!");
@@ -159,8 +162,8 @@ function initialize(){
 
     fetchJSON(url).then(json => {
         initializeNavigation(json);
-        //setTimeout(step, 50);
-        startTracking();
+        setTimeout(step, 50);
+        //startTracking();
     });
 }
 
@@ -175,9 +178,8 @@ function step (){
     }
 }
 
-function update(position){
-    var coord = position.coords;
-    var location = turf.point([coord.longitude, coord.latitude]);
+function update(location){
+    
 
     var dataAtLocation = pointOnRoute(result.route, location);
     var distance = distanceAtLocation(result.route, location);
