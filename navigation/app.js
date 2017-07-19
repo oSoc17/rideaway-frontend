@@ -100,6 +100,35 @@ function instructionAt(instructions, currentDistance){
     }
 }
 
+function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+
+function fetchJSON(url) {
+  return new Promise((resolve, reject) => {
+    fetch(url)
+      .then(response => response.json())
+      .then(json => resolve(json))
+      .catch(ex => reject(ex));
+  });
+}
+
+function startTracking() {
+  if (navigator.geolocation) {
+    navigator.geolocation.watchPosition(position =>
+      update(position)
+    );
+  } else {
+    alert("Sorry, your browser doesn't support geolocation!");
+  }
+}
+
 var result;
 
 var length;
@@ -110,13 +139,29 @@ var totalTime;
 //console.log(dataAtLast);
 
 var i = 0;
+var loc1;
+var loc2;
 
-function initializeNavigation(result){
+function initializeNavigation(result){    
     this.result = result;
     length = lengthOfRoute(result.route);
     dataAtLast = result.route.features[result.route.features.length - 1].properties;
     totalDistance = dataAtLast.distance / 1000.0;
     totalTime = dataAtLast.time;
+}
+
+function initialize(){
+    loc1 = getParameterByName("loc1");
+    loc2 = getParameterByName("loc2");
+    console.log(loc1);
+    console.log(loc2);
+    const url = `https://cyclerouting-api.osm.be/route?loc1=${loc1}&loc2=${loc2}&profile=brussels&instructions=true`;
+
+    fetchJSON(url).then(json => {
+        initializeNavigation(json);
+        //setTimeout(step, 50);
+        startTracking();
+    });
 }
 
 function step (){ 
@@ -130,7 +175,10 @@ function step (){
     }
 }
 
-function update(location){
+function update(position){
+    var coord = position.coords;
+    var location = turf.point([coord.longitude, coord.latitude]);
+
     var dataAtLocation = pointOnRoute(result.route, location);
     var distance = distanceAtLocation(result.route, location);
     var instruction = instructionAt(result.instructions, distance*1000);
@@ -207,5 +255,4 @@ function update(location){
     }*/
 }
 
-initializeNavigation(result);
-setTimeout(step, 50);
+initialize();
