@@ -9,7 +9,7 @@ html,
 body,
 .container {
   font-family: 'Circular Std Black';
-  font-size: 16pt;
+  font-size: 24pt;
   height: 100vh;
   margin: 0;
   padding: 0;
@@ -61,6 +61,7 @@ body,
   z-index: 99;
   left: 0;
   right: 0;
+  color: #303030
 }
 
 #current-road {
@@ -118,12 +119,12 @@ body,
 }
 
 #goto-map {
-    top: 35vh;
+    top: 38vh;
     background-image: url("/assets/marker-white.svg");
 }
 
 #close-navigation {
-    top: 55vh;
+    top: 52vh;
     background-image: url("/assets/x-14.svg");
 }
 
