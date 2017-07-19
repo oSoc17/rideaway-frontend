@@ -118,18 +118,33 @@ function step (){
     i += 0.01;
 
     if (i < length) {
-        setTimeout(step, 100);
+        setTimeout(step, 50);
     }
 }
 
 function update(location){
     var dataAtLocation = pointOnRoute(result.route, location);
     var distance = distanceAtLocation(result.route, location);
-    var instruction = instructionAt(result.instructions, i*1000);
+    var instruction = instructionAt(result.instructions, distance*1000);
 
 
     document.getElementById("next-instruction-distance").innerHTML = '' + Math.round((instruction.properties.distance - (distance*1000))/10)*10 + 'm';
-    document.getElementById("next-instruction-road-ref").innerHTML = '' + instruction.properties.nextRef;
+    if (instruction.properties.type === "stop"){
+        document.getElementById("next-instruction-road-ref").innerHTML = '' + "Bestemming";
+        document.getElementById("next-instruction-road-ref").style["width"] = "250px";
+
+    }
+    else {
+        document.getElementById("next-instruction-road-ref").innerHTML = '' + instruction.properties.nextRef;
+    }
+    if (instruction.properties.type === "start"){
+        document.getElementById("current-road-ref").innerHTML = '' + instruction.properties.instruction;
+    }
+    else {
+        document.getElementById("current-road-ref").innerHTML = '' + instruction.properties.ref;
+    }
+
+    
     document.getElementById("current-road-ref").innerHTML = '' + instruction.properties.ref;
 
 
@@ -189,4 +204,4 @@ function update(location){
     }*/
 }
 
-setTimeout(step, 100);
+setTimeout(step, 50);

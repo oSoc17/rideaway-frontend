@@ -84,11 +84,11 @@ body,
     bottom: -50px;
 }
 
-/*
+
 #debug {
   display: none;
 }
-*/
+
 
 .road-square {
   background-color: #fff;
@@ -97,6 +97,34 @@ body,
   line-height: 50px;
   text-align: center;
   width: 50px;
+  
+}
+
+.round-button {
+  position: absolute;
+  margin: auto;
+  z-index: 99;
+  background-color: #fbba00;
+  border-radius: 50%;
+  display: inline-block;
+  height: 10vh;
+  text-align: center;
+  width: 10vh;
+  border: none;
+  right:5vh;
+  background-size: 50%;
+  background-repeat: no-repeat;
+  background-position: bottom 50% center;
+}
+
+#goto-map {
+    top: 35vh;
+    background-image: url("/assets/marker-white.svg");
+}
+
+#close-navigation {
+    top: 55vh;
+    background-image: url("/assets/x-14.svg");
 }
 
 #swoosh {
