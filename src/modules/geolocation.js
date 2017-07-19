@@ -11,14 +11,14 @@ function createMarker() {
   el.appendChild(child1);
   el.appendChild(child2);
 
-  return new mapboxgl.Marker(el);
+  return new mapboxgl.Marker(el, { offset: [-10 / 2, -10] });
 }
 
-export function startTracking(map) {
+export function startTracking(map, updatePosition) {
   const marker = createMarker();
   if (navigator.geolocation) {
     navigator.geolocation.watchPosition(position =>
-      onPosition(position, marker, map)
+      onPosition(position, marker, map, updatePosition)
     );
   } else {
     alert("Sorry, your browser doesn't support geolocation!");
@@ -34,11 +34,11 @@ export function stopTracking() {
   window.removeEventListener('deviceorientation', () => _setHeading(map));
 }
 
-function onPosition(position, marker, map) {
-  marker.setLngLat([position.coords.longitude, position.coords.latitude]);
+function onPosition(position, marker, map, updatePosition) {
+  const LngLat = [position.coords.longitude, position.coords.latitude];
+  updatePosition(LngLat);
+  marker.setLngLat(LngLat);
   marker.addTo(map);
 }
 
-function _setHeading(e, map) {
-  console.log(e);
-}
+function _setHeading(e, map) {}
