@@ -28,19 +28,19 @@ body,
 #next-instruction-arrow {
   color: #fff;
   display: inline-block;
-  /*font-size: 4em;*/
-  height: 50%;
+  height: 45%;
   text-align: center;
-  width: 50%;
+  width: 100%;
 }
 #next-instruction-arrow > .fa {
   margin: 0 auto;
 }
 #next-instruction-road {
   display: inline-block;
-  height: 50%;
+  height: 45%;
   text-align: center;
-  width: 50%;
+  width: 100%;
+  margin-top: 5vh;
 }
 #next-instruction-road > div {
   margin: 0 auto;
@@ -75,9 +75,13 @@ body,
   width: 100vw;
 }
 #current-road > div {
-  bottom: -50px;
+  
   margin: auto;
   position: relative;
+}
+
+#current-road-ref {
+    bottom: -50px;
 }
 
 /*
@@ -93,6 +97,20 @@ body,
   line-height: 50px;
   text-align: center;
   width: 50px;
+}
+
+#swoosh {
+    bottom: -25vh;
+}
+
+#swoosh-left {
+    color: #fff;
+    float: left;
+}
+
+#swoosh-right {
+    color: #fff;
+    float: right;
 }
 /*
 #main
