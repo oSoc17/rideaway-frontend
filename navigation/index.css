@@ -65,7 +65,7 @@ body,
 
 #current-road {
   background-image: url("./assets/bike.svg");
-  background-position: bottom 25px center;
+  background-position: bottom 5vh center;
   background-repeat: no-repeat;
   background-size: 30vw;
   background-color: blue;
@@ -81,7 +81,7 @@ body,
 }
 
 #current-road-ref {
-    bottom: -50px;
+    bottom: -10vh;
 }
 
 
@@ -93,10 +93,10 @@ body,
 .road-square {
   background-color: #fff;
   border-radius: 10px;
-  height: 50px;
-  line-height: 50px;
+  height: 10vh;
+  line-height: 10vh;
   text-align: center;
-  width: 50px;
+  width: 10vh;
   
 }
 
@@ -134,11 +134,13 @@ body,
 #swoosh-left {
     color: #fff;
     float: left;
+    width: 25%;
 }
 
 #swoosh-right {
     color: #fff;
     float: right;
+    width: 25%;
 }
 /*
 #main
