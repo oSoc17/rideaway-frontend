@@ -36,13 +36,13 @@
     "webpack-dotenv-plugin": "2.0.2"
   },
   "dependencies": {
-    "@mapbox/mapbox-gl-geocoder": "^2.1.0",
-    "debug": "^2.6.8",
-    "konami-js": "^0.0.2",
-    "l20n": "^5.0.0",
-    "lodash": "^4.17.4",
-    "mapbox-gl": "^0.39.1",
-    "whatwg-fetch": "^2.0.3"
+    "@mapbox/mapbox-gl-geocoder": "2.1.1",
+    "debug": "2.6.8",
+    "konami-js": "0.0.2",
+    "l20n": "5.0.0",
+    "lodash": "4.17.4",
+    "mapbox-gl": "0.39.1",
+    "whatwg-fetch": "2.0.3"
   },
   "renovate": {
     "baseBranch": "develop",
