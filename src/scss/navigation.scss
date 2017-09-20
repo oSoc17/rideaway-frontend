@@ -87,23 +87,6 @@
   overflow: hidden;
 }
 
-.round-button {
-  position: absolute;
-  margin: auto;
-  z-index: 2;
-  background-color: $secondary-color;
-  border-radius: 50%;
-  display: inline-block;
-  height: 10vh;
-  text-align: center;
-  width: 10vh;
-  border: none;
-  right: 5vh;
-  background-size: 50%;
-  background-repeat: no-repeat;
-  background-position: bottom 50% center;
-}
-
 #goto-map {
   top: 38vh;
   background-image: url('../icons/discover-empty-white.svg');
@@ -170,18 +153,48 @@
   transition: transform ease-in-out 0.3s;
 }
 
-#total-distance {
-  color: $white;
+.middle-centered {
   position: absolute;
-  z-index: 2;
-  bottom: 1vh;
-  left: 2vh;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-#arrival-time {
+.routeinfo {
   color: $white;
-  position: absolute;
   z-index: 2;
-  bottom: 1vh;
-  right: 2vh;
+  background: $secondary-color;
+  padding: 0.5em;
+  list-style: none;
+  border-radius: 10px;
+  font-size: 20px;
+  margin-left: 0.5em;
+  width: 20vw;
+  box-sizing: border-box;
+}
+
+.routeinfo-item {
+  margin: 0.5em 0;
+}
+
+.actionbuttons {
+  z-index: 2;
+  margin-right: 0.5em;
+  width: 15vw;
+}
+
+.round-button {
+  display: block;
+  margin: 1em 0;
+  background-color: $secondary-color;
+  border-radius: 50%;
+  height: 15vw;
+  width: 100%;
+  text-align: center;
+  border: none;
+  background-size: 50%;
+  background-repeat: no-repeat;
+  background-position: bottom 50% center;
 }

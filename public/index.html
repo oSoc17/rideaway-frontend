@@ -105,8 +105,18 @@
 
       <div id="next-instruction-distance">300m.</div>
 
-      <button id="goto-map" class="round-button"></button>
-      <button id="close-navigation" class="round-button"></button>
+      <div class="middle-centered">
+        <ul class="routeinfo">
+          <li id="total-time" class="routeinfo-item"></li>
+          <li id="total-distance" class="routeinfo-item"></li>
+          <li id="arrival-time" class="routeinfo-item"></li>
+        </ul>
+
+        <div class="actionbuttons">
+          <button id="goto-map" class="round-button"></button>
+          <button id="close-navigation" class="round-button"></button>
+        </div>
+      </div>
 
       <div id="direction-arrow"></div>
 
@@ -120,9 +130,6 @@
         <img id="swoosh-left" src=<%=require( "../src/icons/swoosh-left.svg")%> />
         <img id="swoosh-right" src=<%=require( "../src/icons/swoosh-right.svg")%> />
       </div>
-
-      <div id="total-distance"></div>
-      <div id="arrival-time"></div>
 
     </div>
   </div>

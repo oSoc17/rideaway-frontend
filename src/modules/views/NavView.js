@@ -1,6 +1,7 @@
 import {
   displayArrival,
   displayDistance,
+  displayTime,
   calculateRotationAngle
 } from '../lib';
 import { angleDeg, colors } from '../../constants';
@@ -62,6 +63,9 @@ export default class NavView {
       remainingDistance
     );
     document.getElementById('arrival-time').innerHTML = displayArrival(
+      remainingTime
+    );
+    document.getElementById('total-time').innerHTML = displayTime(
       remainingTime
     );
   }
