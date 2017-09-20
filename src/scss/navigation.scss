@@ -55,10 +55,6 @@
 }
 
 #current-road {
-  background-image: url('../icons/bike.svg');
-  background-position: bottom 5vh center;
-  background-repeat: no-repeat;
-  background-size: 30vw;
   height: 50vh;
   position: absolute;
   top: 50vh;
@@ -97,31 +93,19 @@
   background-image: url('../icons/x-slim.svg');
 }
 
-.message-box {
-  background-color: $white;
-  text-align: center;
-  margin: 2em 15%;
-  padding: 0.4em;
-  box-sizing: border-box;
-  border-radius: 10px;
-  width: 70%;
-}
-
 #current-road-message {
   top: 10vh;
   display: none;
 }
 
-#message {
-  position: absolute;
-  top: 0vh;
-  z-index: 2;
-}
-
 #swoosh {
   position: absolute;
-  bottom: 10vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  bottom: 5vh;
   width: 100vw;
+  z-index: 3;
 }
 
 #swoosh-left {
@@ -136,16 +120,45 @@
   width: 25%;
 }
 
+.direction-screen {
+  display: none;
+  z-index: 2;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: $primary-color;
+  justify-content: center;
+}
+
+.direction-box {
+  margin-top: 20vh;
+  width: 50vw;
+  height: 50vh;
+  background: $white;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 0.5em;
+  box-sizing: border-box;
+
+  div {
+    text-align: center;
+  }
+}
+
+.message-box {
+  text-align: center;
+  color: $secondary-color;
+  font-size: 27px;
+}
+
 #direction-arrow {
   background-color: $secondary-color;
   border-radius: 50%;
-  position: relative;
-  display: block;
-  z-index: 2;
-  top: 76vh;
   margin: 0 auto;
-  width: 23vh;
-  height: 23vh;
+  height: 20vh;
+  width: 20vh;
   background-image: url('../icons/marker-white.svg');
   background-size: 50%;
   background-repeat: no-repeat;
@@ -164,14 +177,14 @@
 
 .routeinfo {
   color: $white;
-  z-index: 2;
+  z-index: 3;
   background: $secondary-color;
   padding: 0.5em;
   list-style: none;
   border-radius: 10px;
-  font-size: 20px;
+  font-size: 18px;
   margin-left: 0.5em;
-  width: 20vw;
+  width: 18vw;
   box-sizing: border-box;
 }
 
@@ -180,13 +193,12 @@
 }
 
 .actionbuttons {
-  z-index: 2;
+  z-index: 3;
   margin-right: 0.5em;
   width: 15vw;
 }
 
 .round-button {
-  display: block;
   margin: 1em 0;
   background-color: $secondary-color;
   border-radius: 50%;

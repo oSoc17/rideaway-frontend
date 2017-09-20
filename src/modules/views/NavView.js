@@ -177,6 +177,28 @@ export default class NavView {
     }
   }
 
+  updateDirectionArrowDistance(distance) {
+    document.getElementById('direction-distance').innerHTML = displayDistance(
+      distance
+    );
+  }
+
+  /**
+   * Toggles the screen when entering/exiting the cyclenetwork
+   */
+  toggleDirectionScreen(toggle) {
+    const dScreen = document.querySelector('.direction-screen');
+    if (toggle !== undefined) {
+      if (toggle) {
+        dScreen.classList.add('visible');
+      } else {
+        dScreen.classList.remove('visible');
+      }
+    } else {
+      dScreen.classList.toggle('visible');
+    }
+  }
+
   /**
    * Updates the message displayed for certain instructions.
    * 

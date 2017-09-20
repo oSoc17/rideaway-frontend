@@ -101,8 +101,6 @@
         </div>
       </div>
 
-      <div id="message" class="message-box" data-l10n-id="instr-leave"></div>
-
       <div id="next-instruction-distance">300m.</div>
 
       <div class="middle-centered">
@@ -118,7 +116,13 @@
         </div>
       </div>
 
-      <div id="direction-arrow"></div>
+      <div class="direction-screen">
+        <div class="direction-box">
+          <div id="message" class="message-box" data-l10n-id="instr-leave"></div>
+          <div id="direction-arrow"></div>
+          <div id="direction-distance"></div>
+        </div>
+      </div>
 
       <div id="current-road" class="centered">
         <div id="current-road-message" class="message-box" data-l10n-id="instr-enter"></div>
@@ -128,6 +132,7 @@
 
       <div id="swoosh">
         <img id="swoosh-left" src=<%=require( "../src/icons/swoosh-left.svg")%> />
+        <img id="bike" src=<%=require( "../src/icons/bike.svg")%> />
         <img id="swoosh-right" src=<%=require( "../src/icons/swoosh-right.svg")%> />
       </div>
 

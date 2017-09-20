@@ -83,8 +83,6 @@ export default function initialize(origin, destination, routerContext) {
     } else {
       router.geolocController.startTracking();
     }
-    // set an interval update for the directional arrow
-    interval = setInterval(onIntervalUpdate, 1000);
   });
   document
     .getElementById('close-navigation')
@@ -154,8 +152,6 @@ function onIntervalUpdate() {
   }
 
   navView.updateDirectionArrow(instruction, userPosition, userHeading);
-
-  updateScreen(location, distance, instruction);
 }
 
 /**
@@ -192,9 +188,20 @@ function update() {
     location
   );
 
-  // if we arrive at stop, set the interval again
-  if (instruction.properties.type === 'stop' && !interval) {
-    interval = setInterval(onIntervalUpdate, 1000);
+  if (
+    instruction.properties.type === 'enter' ||
+    instruction.properties.type === 'stop'
+  ) {
+    // if we arrive at enter/stop, set the interval again
+    if (!interval) {
+      interval = setInterval(onIntervalUpdate, 1000);
+      navView.toggleDirectionScreen(true);
+    }
+    // update the distance to the cyclenetwork
+    const distanceToNext = instruction.properties.distance - distance * 1000;
+    navView.updateDirectionArrowDistance(distanceToNext);
+  } else {
+    navView.toggleDirectionScreen(false);
   }
 
   updateScreen(location, distance, instruction);

@@ -22,9 +22,9 @@ export function fetchJSON(url) {
 */
 export function displayDistance(m) {
   if (m < 1000) {
-    return `${Math.round(m / 10) * 10} m`;
+    return `${Math.round(m / 10) * 10}m`;
   }
-  return `${Math.round(m / 100) / 10} km`;
+  return `${Math.round(m / 100) / 10}km`;
 }
 
 /*
@@ -34,14 +34,14 @@ export function displayDistance(m) {
 */
 export function displayTime(s) {
   if (s < 60) {
-    return '1 min';
+    return '1min';
   }
   if (s < 3600) {
-    return `${Math.round(s / 60)} min`;
+    return `${Math.round(s / 60)}min`;
   }
   var h = Math.floor(s / 3600);
   var m = Math.floor((s % 3600) / 60);
-  return `${h} h ${m} min`;
+  return `${h} h ${m}min`;
 }
 
 /*
@@ -220,7 +220,12 @@ export function distanceAtLocation(route, location) {
  * @param {number} currentDistance - the distance to get the instruction for
  * @param {Object} closestPoint - closest point on the route based on location
  */
-export function instructionAt(instructions, currentDistance, closestPoint, location) {
+export function instructionAt(
+  instructions,
+  currentDistance,
+  closestPoint,
+  location
+) {
   for (var i = 0; i < instructions.features.length; i++) {
     var instruction = instructions.features[i];
     if (instruction.properties.distance > currentDistance) {
@@ -242,7 +247,7 @@ export function instructionAt(instructions, currentDistance, closestPoint, locat
       }
       return instruction;
     }
-  }  
+  }
 }
 
 export function calculateAngle(location, closestPoint) {
