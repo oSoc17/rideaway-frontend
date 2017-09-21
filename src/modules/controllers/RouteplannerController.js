@@ -46,6 +46,7 @@ export default function initialize(origin, destination, routerContext) {
     if (origin && destination) {
       origin = swapArrayValues(origin);
       destination = swapArrayValues(destination);
+
       places.origin = origin;
       places.destination = destination;
     }

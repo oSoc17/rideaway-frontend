@@ -112,7 +112,11 @@ export default function initialize(origin, destination, routerContext) {
 function startTracking(position) {
   // don't do anything if position isn't found yet
   if (!position) {
+    window.userLocated = false;
     return;
+  }
+  if (!this.userPosition) {
+    window.userLocated = true;
   }
   this.userPosition = [position.coords.longitude, position.coords.latitude];
   // update
