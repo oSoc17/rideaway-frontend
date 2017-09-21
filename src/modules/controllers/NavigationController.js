@@ -6,10 +6,9 @@ import {
   pointAlongRoute,
   pointOnRoute,
   distanceAtLocation,
-  instructionAt,
-  calculateAngle
+  instructionAt
 } from '../lib';
-import { degAngle } from '../../constants';
+import { intervalTimes } from '../../constants';
 
 import NavView from '../views/NavView';
 
@@ -51,7 +50,7 @@ export default function initialize(origin, destination, routerContext) {
   if (_.isEqual(loc1, origin) && _.isEqual(loc2, destination)) {
     document.querySelector('.main-loading').classList.remove('visible');
     // re-set interval update
-    interval = setInterval(onIntervalUpdate, 1000);
+    interval = setInterval(onIntervalUpdate, intervalTimes.userHeading);
     return;
   }
 
@@ -198,7 +197,7 @@ function update() {
   ) {
     // if we arrive at enter/stop, set the interval again
     if (!interval) {
-      interval = setInterval(onIntervalUpdate, 1000);
+      interval = setInterval(onIntervalUpdate, intervalTimes.userHeading);
       navView.toggleDirectionScreen(true);
     }
     // update the distance to the cyclenetwork

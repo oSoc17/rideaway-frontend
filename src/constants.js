@@ -68,3 +68,8 @@ export const degAngle = {
   180: 'right',
   225: 'sharpright'
 };
+
+// update intervals in ms
+export const intervalTimes = {
+  userHeading: 250
+};

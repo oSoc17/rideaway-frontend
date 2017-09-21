@@ -2,7 +2,7 @@ import mapboxgl from 'mapbox-gl';
 import turf from 'turf';
 import _ from 'lodash';
 
-import { urls, boundingBox, center } from '../../constants';
+import { urls, boundingBox, center, intervalTimes } from '../../constants';
 import { swapArrayValues, fetchJSON, displayTime } from '../lib';
 import icons from '../../icons';
 import MapController from './MapController';
@@ -469,7 +469,7 @@ function changeTrackingMode() {
             pitch: 75,
             bearing: geolocController.userHeading || 0
           });
-        }, 100);
+        }, intervalTimes.userHeading);
       }
       break;
     case 'pitched':
