@@ -92,16 +92,6 @@
 
   <div class="navigation page">
     <div class="container">
-      <div id="next-instruction">
-        <div id="next-instruction-road">
-          <div id="next-instruction-road-ref" class="road-square">3</div>
-        </div>
-        <div id="next-instruction-arrow">
-          <img id="next-instruction-arrow-img" src=<%=require( "../src/icons/arrow.svg")%> />
-        </div>
-      </div>
-
-      <div id="next-instruction-distance">300m.</div>
 
       <div class="middle-centered">
         <ul class="routeinfo">
@@ -117,6 +107,14 @@
       </div>
 
       <div class="direction-screen">
+        <div class="direction-instruction">
+          <div id="direction-instruction-road-ref">
+            <div class="road-square">3</div>
+          </div>
+          <div id="direction-instruction-arrow">
+            <img src=<%=require( "../src/icons/arrow.svg")%> />
+          </div>
+        </div>
         <div class="direction-box">
           <div id="message" class="message-box" data-l10n-id="instr-leave"></div>
           <div id="direction-arrow"></div>
@@ -124,16 +122,28 @@
         </div>
       </div>
 
-      <div id="current-road" class="centered">
-        <div id="current-road-message" class="message-box" data-l10n-id="instr-enter"></div>
+      <div class="navigation-screen visible-regular">
+        <div id="next-instruction">
+          <div id="next-instruction-road">
+            <div id="next-instruction-road-ref" class="road-square">3</div>
+          </div>
+          <div id="next-instruction-arrow">
+            <img id="next-instruction-arrow-img" src=<%=require( "../src/icons/arrow.svg")%> />
+          </div>
+        </div>
+
+        <div id="next-instruction-distance">300m.</div>
+        <div id="current-road" class="centered">
+          <div id="current-road-message" class="message-box" data-l10n-id="instr-enter"></div>
+        </div>
+
+        <div id="current-road-ref" class="road-square">3</div>
       </div>
 
-      <div id="current-road-ref" class="road-square">3</div>
-
-      <div id="swoosh">
-        <img id="swoosh-left" src=<%=require( "../src/icons/swoosh-left.svg")%> />
-        <img id="bike" src=<%=require( "../src/icons/bike.svg")%> />
-        <img id="swoosh-right" src=<%=require( "../src/icons/swoosh-right.svg")%> />
+      <div class="swoosh">
+        <img class="swoosh-left" src=<%=require( "../src/icons/swoosh-left.svg")%> />
+        <img class="bike" src=<%=require( "../src/icons/bike.svg")%> />
+        <img class="swoosh-right" src=<%=require( "../src/icons/swoosh-right.svg")%> />
       </div>
 
     </div>

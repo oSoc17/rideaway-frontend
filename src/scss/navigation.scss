@@ -7,6 +7,10 @@
   width: 100vw;
 }
 
+.navigation-screen {
+  display: none;
+}
+
 #next-instruction {
   height: 20vh;
   margin: 0 auto;
@@ -14,44 +18,45 @@
   text-align: center;
   top: 0;
   width: 100vw;
-}
-#next-instruction-arrow {
-  position: absolute;
-  color: $white;
-  height: 45%;
-  text-align: center;
-  width: 100%;
-  margin: 0 auto;
-}
-#next-instruction-road {
-  height: 45%;
-  text-align: center;
-  width: 100%;
-}
-#next-instruction-road-ref {
-  left: 0;
-  right: 0;
-  position: absolute;
-}
-#next-instruction-road > div {
-  margin: 0 auto;
-}
-#next-instruction-distance {
-  background-color: $white;
-  border-radius: 25px;
-  display: block;
-  height: 50px;
-  line-height: 50px;
-  margin: auto;
-  margin-top: -25px;
-  position: absolute;
-  text-align: center;
-  top: 50vh;
-  width: 40vw;
-  z-index: 2;
-  left: 0;
-  right: 0;
-  color: $dark-grey;
+
+  #next-instruction-arrow {
+    position: absolute;
+    color: $white;
+    height: 45%;
+    text-align: center;
+    width: 100%;
+    margin: 0 auto;
+  }
+  #next-instruction-road {
+    height: 45%;
+    text-align: center;
+    width: 100%;
+  }
+  #next-instruction-road-ref {
+    left: 0;
+    right: 0;
+    position: absolute;
+  }
+  #next-instruction-road > div {
+    margin: 0 auto;
+  }
+  #next-instruction-distance {
+    background-color: $white;
+    border-radius: 25px;
+    display: block;
+    height: 50px;
+    line-height: 50px;
+    margin: auto;
+    margin-top: -25px;
+    position: absolute;
+    text-align: center;
+    top: 50vh;
+    width: 40vw;
+    z-index: 2;
+    left: 0;
+    right: 0;
+    color: $dark-grey;
+  }
 }
 
 #current-road {
@@ -98,7 +103,7 @@
   display: none;
 }
 
-#swoosh {
+.swoosh {
   position: absolute;
   display: flex;
   justify-content: space-between;
@@ -108,13 +113,13 @@
   z-index: 3;
 }
 
-#swoosh-left {
+.swoosh-left {
   float: left;
   color: $white;
   width: 25%;
 }
 
-#swoosh-right {
+.swoosh-right {
   float: right;
   color: $white;
   width: 25%;
@@ -130,6 +135,22 @@
   justify-content: center;
 }
 
+.direction-instruction {
+  position: absolute;
+  display: flex;
+  margin-top: 5vh;
+  align-items: center;
+  justify-content: center;
+
+  div {
+    margin: 0 0.3em;
+
+    img {
+      vertical-align: middle;
+    }
+  }
+}
+
 .direction-box {
   margin-top: 20vh;
   width: 50vw;
@@ -141,6 +162,7 @@
   justify-content: space-around;
   padding: 0.5em;
   box-sizing: border-box;
+  box-shadow: $material-shadow;
 
   div {
     text-align: center;
@@ -186,6 +208,7 @@
   margin-left: 0.5em;
   width: 18vw;
   box-sizing: border-box;
+  box-shadow: $material-shadow;
 }
 
 .routeinfo-item {
@@ -201,6 +224,7 @@
 .round-button {
   margin: 1em 0;
   background-color: $secondary-color;
+  box-shadow: $material-shadow;
   border-radius: 50%;
   height: 15vw;
   width: 100%;

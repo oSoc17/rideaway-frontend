@@ -177,25 +177,49 @@ export default class NavView {
     }
   }
 
-  updateDirectionArrowDistance(distance) {
+  updateDirectionDistance(distance) {
     document.getElementById('direction-distance').innerHTML = displayDistance(
       distance
     );
+  }
+
+  updateDirectionInstruction(instruction) {
+    const road = document.querySelector('#direction-instruction-road-ref div');
+    const arrow = document.querySelector('#direction-instruction-arrow');
+    document.getElementById('next-instruction').style['background-color'] =
+      instruction.properties.nextColour;
+    if (instruction.properties.type === 'stop') {
+      road.style['display'] = 'none';
+      arrow.style['display'] = 'none';
+    } else {
+      road.style['display'] = '';
+      road.style['background-color'] = instruction.properties.nextColour;
+      road.innerHTML = '' + instruction.properties.nextRef;
+      if (instruction.properties.angle) {
+        arrow.style['transform'] = `rotate(${angleDeg[
+          instruction.properties.angle.toLowerCase()
+        ]}deg)`;
+      }
+    }
   }
 
   /**
    * Toggles the screen when entering/exiting the cyclenetwork
    */
   toggleDirectionScreen(toggle) {
-    const dScreen = document.querySelector('.direction-screen');
+    const navScreen = document.querySelector('.navigation-screen');
+    const dirScreen = document.querySelector('.direction-screen');
     if (toggle !== undefined) {
       if (toggle) {
-        dScreen.classList.add('visible');
+        dirScreen.classList.add('visible');
+        navScreen.classList.remove('visible-regular');
       } else {
-        dScreen.classList.remove('visible');
+        dirScreen.classList.remove('visible');
+        navScreen.classList.add('visible-regular');
       }
     } else {
-      dScreen.classList.toggle('visible');
+      dirScreen.classList.toggle('visible');
+      navScreen.classList.toggle('visible-regular');
     }
   }
 

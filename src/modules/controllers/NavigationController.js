@@ -199,7 +199,8 @@ function update() {
     }
     // update the distance to the cyclenetwork
     const distanceToNext = instruction.properties.distance - distance * 1000;
-    navView.updateDirectionArrowDistance(distanceToNext);
+    navView.updateDirectionDistance(distanceToNext);
+    navView.updateDirectionInstruction(instruction);
   } else {
     navView.toggleDirectionScreen(false);
   }
