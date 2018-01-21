@@ -36,7 +36,7 @@
     "webpack-dotenv-plugin": "2.0.2"
   },
   "dependencies": {
-    "@mapbox/mapbox-gl-geocoder": "2.1.1",
+    "@mapbox/mapbox-gl-geocoder": "2.2.0",
     "add-to-homescreen": "3.2.6",
     "debug": "2.6.9",
     "l20n": "5.0.0",
