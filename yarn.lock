@@ -6,13 +6,13 @@
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/@mapbox/gl-matrix/-/gl-matrix-0.0.1.tgz#e5126aab4d64c36b81c7a97d0ae0dddde5773d2b"
 
-"@mapbox/mapbox-gl-geocoder@^2.1.0":
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/@mapbox/mapbox-gl-geocoder/-/mapbox-gl-geocoder-2.1.1.tgz#74032642a646d274c93ecdfa483e29eea7293b48"
+"@mapbox/mapbox-gl-geocoder@^2.0.1":
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/@mapbox/mapbox-gl-geocoder/-/mapbox-gl-geocoder-2.2.0.tgz#1f1aa75847dd8f1ad96264918485b32ad4f31c79"
   dependencies:
     lodash.debounce "^4.0.6"
     mapbox "1.0.0-beta9"
-    suggestions "^1.3.1"
+    suggestions "^1.3.2"
     xtend "^4.0.1"
 
 "@mapbox/point-geometry@0.1.0", "@mapbox/point-geometry@^0.1.0", "@mapbox/point-geometry@~0.1.0":
@@ -4815,9 +4815,9 @@ style-loader@0.18.2:
     loader-utils "^1.0.2"
     schema-utils "^0.3.0"
 
-suggestions@^1.3.1:
-  version "1.3.1"
-  resolved "https://registry.yarnpkg.com/suggestions/-/suggestions-1.3.1.tgz#20903db5c31b5ccfcb4f55877750d9715eef4e56"
+suggestions@^1.3.2:
+  version "1.3.2"
+  resolved "https://registry.yarnpkg.com/suggestions/-/suggestions-1.3.2.tgz#6f8d32144b26176682928036ab4e634df757085a"
   dependencies:
     fuzzy "^0.1.1"
     xtend "^4.0.0"
