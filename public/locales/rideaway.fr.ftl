@@ -1,4 +1,4 @@
-routes-choose = Montre une route
+routes-choose = Routes
 routes-all = Toutes
 routes-none = Aucune
 origin-input.placeholder = Départ
@@ -7,8 +7,8 @@ suggestion-location = Ma position
 nav-time = Temps estimé
 nav-distance = Distance
 nav-arrival = Arrivée
-instr-enter = Entre les itinéraires cyclables
-instr-leave = Depart les itinéraires cyclables
+instr-enter = Entrez sur l'itinéraire cyclable
+instr-leave = Sortez de l'itinéraire cyclable
 instr-destination = Destination
 error-title = Oups...
-error-content = Nous ne pouvions pas calculer une route pour vous.
+error-content = Nous n'avons pas pu calculer votre itinéraire.
