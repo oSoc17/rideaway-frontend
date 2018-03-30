@@ -219,3 +219,31 @@
     width: 100vw;
   }
 }
+
+.logo {
+  display: block;
+  margin: auto;
+  width: 25vw;
+  max-width: 15em;
+  margin-bottom: 1em;
+}
+
+#bfb-logo {
+  margin-top: -1.5em;
+  margin-bottom: -1.5em;
+}
+
+@media (min-width: 800px) {
+  .logo {
+    transform: translateX(0) !important;
+  }
+}
+
+@media (max-width: 800px) {
+  .logo {
+    max-width: none;
+    width: 60vw;
+    //position: absolute;
+    transition: transform ease-in-out 0.5s;
+  }
+}
