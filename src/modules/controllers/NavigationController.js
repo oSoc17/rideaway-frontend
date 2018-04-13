@@ -8,7 +8,7 @@ import {
   distanceAtLocation,
   instructionAt
 } from '../lib';
-import { intervalTimes } from '../../constants';
+import { intervalTimes, urls } from '../../constants';
 
 import NavView from '../views/NavView';
 
@@ -59,7 +59,7 @@ export default function initialize(origin, destination, routerContext) {
   navView = new NavView();
   loc1 = origin;
   loc2 = destination;
-  const url = `https://cyclerouting-api.osm.be/route?loc1=${loc1}&loc2=${loc2}&profile=brussels&instructions=true`;
+  const url = `${urls.route}/route?loc1=${loc1}&loc2=${loc2}&profile=brussels&instructions=true`;
 
   fetchJSON(url).then(json => {
     loading = true;
