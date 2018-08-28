@@ -29,7 +29,8 @@ export const colors = {
 };
 
 export const urls = {
-  mapStyle: 'https://openmaptiles.github.io/positron-gl-style/style-cdn.json',
+  mapStyle:
+    'https://maps.tilehosting.com/styles/positron/style.json?key=ajm8AKvQSrA86NfbKwnM',
   network: 'https://cyclenetworks.osm.be/brumob/data/network.geojson',
   route: 'https://cyclerouting-api.osm.be'
 };
