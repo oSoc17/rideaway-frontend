@@ -1,4 +1,4 @@
-import turf from 'turf';
+import turf from '@turf/turf';
 import { degAngle } from '../constants';
 
 /*
@@ -90,8 +90,8 @@ export function swapArrayValues(array) {
 
 /**
  * Get a url parameter by its name. If no url is given the current url is used.
- * 
- * @param {string} name - the name of the parameter 
+ *
+ * @param {string} name - the name of the parameter
  * @param {string} url - the url to get the parameter from
  */
 export function getParameterByName(name, url) {
@@ -106,7 +106,7 @@ export function getParameterByName(name, url) {
 
 /**
  * Calculates the length of the route.
- * 
+ *
  * @param {Object} route - the route object.
  * @return {number} length of the route.
  */
@@ -115,7 +115,7 @@ export function lengthOfRoute(route) {
   for (var i = 0; i < route.features.length; i++) {
     var feature = route.features[i];
     if (feature.geometry.type == 'LineString') {
-      length += turf.lineDistance(feature);
+      length += turf.length(feature);
     }
   }
   return length;
@@ -123,16 +123,16 @@ export function lengthOfRoute(route) {
 
 /**
  * Returns the feature at the given distance on the route
- * 
+ *
  * @param {Object} route - the route object
- * @param {number} distance - distance on route 
+ * @param {number} distance - distance on route
  */
 export function pointAlongRoute(route, distance) {
   var length = 0.0;
   for (var i = 0; i < route.features.length; i++) {
     var feature = route.features[i];
     if (feature.geometry.type == 'LineString') {
-      var localLength = turf.lineDistance(feature);
+      var localLength = turf.length(feature);
 
       if (length <= distance && distance <= localLength + length) {
         return turf.along(feature, distance - length);
@@ -147,8 +147,8 @@ export function pointAlongRoute(route, distance) {
 /**
  * Returns the properties of the geojson feature that is closest to the
  * given point.
- * 
- * @param {Object} route - the route object 
+ *
+ * @param {Object} route - the route object
  * @param {Object} point - a coordinate along the route
  */
 export function pointOnRoute(route, point) {
@@ -174,7 +174,7 @@ export function pointOnRoute(route, point) {
 /**
  * Calculates the distance of the route between the startpoint and the
  * given location.
- * 
+ *
  * @param {Object} route - the route object
  * @param {Object} location - point along the route
  */
@@ -201,9 +201,9 @@ export function distanceAtLocation(route, location) {
 
   var length = 0.0;
   for (var j = 0; j < bestIndex; j++) {
-    length += turf.lineDistance(route.features[j]);
+    length += turf.length(route.features[j]);
   }
-  length += turf.lineDistance(
+  length += turf.length(
     turf.lineSlice(
       turf.point(route.features[bestIndex].geometry.coordinates[0]),
       location,
@@ -215,7 +215,7 @@ export function distanceAtLocation(route, location) {
 
 /**
  * Returns the instruction that is next when you are at the given distance on the route
- * 
+ *
  * @param {Object} instructions - list of the instructions
  * @param {number} currentDistance - the distance to get the instruction for
  * @param {Object} closestPoint - closest point on the route based on location

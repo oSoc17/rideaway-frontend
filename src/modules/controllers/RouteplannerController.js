@@ -1,5 +1,5 @@
 import mapboxgl from 'mapbox-gl';
-import turf from 'turf';
+import turf from '@turf/turf';
 import _ from 'lodash';
 
 import {
@@ -36,9 +36,9 @@ let geolocController;
 let view;
 
 /**
- * 
+ *
  * @param {Array[double, double]} origin - The origin
- * @param {Array[double, double]} destination - The destination 
+ * @param {Array[double, double]} destination - The destination
  * @param {router} routerContext - The router
  */
 export default function initialize(origin, destination, routerContext) {
@@ -196,7 +196,9 @@ function calculateRoute(origin, destination, profile, update) {
   const destinationS = swapArrayValues(destination);
 
   // Construct the url
-  const url = `${urls.route}/route?loc1=${originS}&loc2=${destinationS}&profile=${profile}`;
+  const url = `${
+    urls.route
+  }/route?loc1=${originS}&loc2=${destinationS}&profile=${profile}`;
 
   fetchJSON(url)
     .then(json => {
@@ -232,7 +234,9 @@ function calculateRoute(origin, destination, profile, update) {
 
       if (profile === 'shortest') {
         const lastFeature = json.route.features[json.route.features.length - 1];
-        const { properties: { time } } = lastFeature;
+        const {
+          properties: { time }
+        } = lastFeature;
         const text = displayTime(time);
         const middleFeature =
           json.route.features[Math.round(json.route.features.length / 2)];
@@ -285,7 +289,9 @@ function calculateRoute(origin, destination, profile, update) {
         // Show the navigation box, change the handler
 
         const lastFeature = json.route.features[json.route.features.length - 1];
-        const { properties: { distance, time } } = lastFeature;
+        const {
+          properties: { distance, time }
+        } = lastFeature;
         view.showNavigationBox(
           oldHandler,
           handlers.nav,
@@ -339,7 +345,7 @@ function showBikeParking(destination) {
     });
 }
 
-/** 
+/**
  * Converts a result object to coordinates
  * @param Object{result: {geometry: coordinates: Array[Lat, Lng]}} result - The result from the geocoder
  * @returns Array[int, int] LatLng Array - Array with the coords
@@ -404,8 +410,8 @@ function onPlaceClear(place) {
 
 /**
  * When a result is selected
- * @param {string} place 
- * @param {Object} result 
+ * @param {string} place
+ * @param {Object} result
  */
 function onPlaceResult(place, result) {
   // result event fires twice for some reason, this prevents it

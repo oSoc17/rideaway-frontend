@@ -1,4 +1,4 @@
-import turf from 'turf';
+import turf from '@turf/turf';
 import _ from 'lodash';
 
 import {
@@ -30,8 +30,8 @@ let loc2;
 
 /**
  * Initialises the navigation with the result from the api.
- * 
- * @param {Object} result - result from the api 
+ *
+ * @param {Object} result - result from the api
  */
 function initializeNavigation(jsonresult) {
   result = jsonresult;
@@ -59,7 +59,9 @@ export default function initialize(origin, destination, routerContext) {
   navView = new NavView();
   loc1 = origin;
   loc2 = destination;
-  const url = `${urls.route}/route?loc1=${loc1}&loc2=${loc2}&profile=brussels&instructions=true`;
+  const url = `${
+    urls.route
+  }/route?loc1=${loc1}&loc2=${loc2}&profile=brussels&instructions=true`;
 
   fetchJSON(url).then(json => {
     loading = true;
@@ -177,8 +179,8 @@ function step() {
 
 /**
  * Updates the screen based on the given location.
- * 
- * @param {Object} location - the current location 
+ *
+ * @param {Object} location - the current location
  */
 function update() {
   const location = turf.point(router.geolocController.userPosition);
@@ -213,8 +215,8 @@ function update() {
 
 /**
  * Updates the screen based on the given location.
- * 
- * @param {Object} location - the current location 
+ *
+ * @param {Object} location - the current location
  */
 function updateScreen(location, distance, instruction) {
   let distanceToNext = instruction.properties.distance - distance * 1000;
@@ -229,7 +231,7 @@ function updateScreen(location, distance, instruction) {
 
   let offset = 0;
   if (distanceToNext < 1000) {
-    offset = (distanceToNext - 1000) * -1 / 20;
+    offset = ((distanceToNext - 1000) * -1) / 20;
   }
 
   // update the view

@@ -5,14 +5,14 @@ import {
   calculateRotationAngle
 } from '../lib';
 import { angleDeg, colors } from '../../constants';
-import turf from 'turf';
+import turf from '@turf/turf';
 
 export default class NavView {
   constructor() {}
 
   /**
    * Updates the display of the reference of the current route.
-   * 
+   *
    * @param {Object} instruction - current instruction
    */
   updateCurrentRoadSquare(instruction) {
@@ -30,8 +30,8 @@ export default class NavView {
 
   /**
    * Updates the display of the reference of the next route.
-   * 
-   * @param {Object} instruction - current instruction 
+   *
+   * @param {Object} instruction - current instruction
    * @param {number} offset - offset based on distance to instruction
    */
   updateNextRoadSquare(instruction, offset) {
@@ -54,7 +54,7 @@ export default class NavView {
 
   /**
    * Updates the displayed data about the remaining route.
-   * 
+   *
    * @param {number} remainingDistance - remaining distance in meters.
    * @param {number} remainingTime - remaining time in seconds.
    */
@@ -72,7 +72,7 @@ export default class NavView {
 
   /**
    * Updates the display of the colour of the current route.
-   * 
+   *
    * @param {Object} instruction - current instruction
    * @param {number} offset - offset based on distance to instruction
    */
@@ -92,8 +92,8 @@ export default class NavView {
 
   /**
    * Updates the display of the colour of the next route.
-   * 
-   * @param {Object} instruction - current instruction 
+   *
+   * @param {Object} instruction - current instruction
    * @param {number} offset - offset based on distance to instruction
    */
   updateNextRoadColour(instruction, offset) {
@@ -111,7 +111,7 @@ export default class NavView {
 
   /**
    * Updates the display of the distance to the next instruction.
-   * 
+   *
    * @param {number} distanceToNext - distance to next instruction
    * @param {number} offset - offset based on distance to next instruction
    */
@@ -125,8 +125,8 @@ export default class NavView {
 
   /**
    * Updates the display of the turning indication of the next instruction.
-   * 
-   * @param {Object} instruction - next instruction 
+   *
+   * @param {Object} instruction - next instruction
    * @param {number} offset - offset based on distance to next instruction
    */
   updateNextRoadDirection(instruction, offset) {
@@ -145,7 +145,7 @@ export default class NavView {
 
   /**
    * Updates the directional arrow to point to closest point on the route.
-   * 
+   *
    * @param {Object} instruction - next instruction
    * @param {Object} location - closest location on route
    * @param {number} heading - current heading
@@ -196,9 +196,9 @@ export default class NavView {
       road.style['background-color'] = instruction.properties.nextColour;
       road.innerHTML = '' + instruction.properties.nextRef;
       if (instruction.properties.angle) {
-        arrow.style['transform'] = `rotate(${angleDeg[
-          instruction.properties.angle.toLowerCase()
-        ]}deg)`;
+        arrow.style['transform'] = `rotate(${
+          angleDeg[instruction.properties.angle.toLowerCase()]
+        }deg)`;
       }
     }
   }
@@ -225,8 +225,8 @@ export default class NavView {
 
   /**
    * Updates the message displayed for certain instructions.
-   * 
-   * @param {Object} instruction - next instruction 
+   *
+   * @param {Object} instruction - next instruction
    */
   updateMessage(instruction) {
     if (instruction.properties.type === 'leave') {
