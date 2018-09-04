@@ -15,7 +15,7 @@ const extractSass = new ExtractTextPlugin({
 
 const prodPlugins = [
   new OfflinePlugin({
-    publicPath: 'https://osoc.osm.be',
+    publicPath: 'https://rideaway.netlify.com',
     caches: {
       main: ['main.*.css', 'app.*.js'],
       additional: [':externals:'],
@@ -98,7 +98,6 @@ module.exports = {
       { from: 'public/favicons' },
       { from: 'public/landing' },
       { from: 'public/logo' }
-      
     ]),
     new HtmlWebpackPlugin({
       minify: {
