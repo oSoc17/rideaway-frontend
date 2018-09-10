@@ -43,7 +43,7 @@
     "lodash": "^4.17.4",
     "mapbox-gl": "^0.40.1",
     "turf": "^3.0.14",
-    "whatwg-fetch": "^2.0.3"
+    "whatwg-fetch": "^3.0.0"
   },
   "renovate": {
     "baseBranch": "develop",
